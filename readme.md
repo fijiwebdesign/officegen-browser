@@ -4,8 +4,8 @@
 ## Install
 
 ```
-git clone git@bitbucket.org:fijiwebdesign/officegen-browserify.git
-cd officegen-browserify
+git clone https://github.com/fijiwebdesign/officegen-browser.git
+cd officegen-browser
 npm install
 npm run browserify-officegen
 npm run browserify-fs
