@@ -1,0 +1,128 @@
+.page{
+    width:900px;
+    background-color: #FFF;
+}
+
+.blockline{
+  display: inline-block;
+  vertical-align: top;
+}
+
+#logo{
+    float:left;
+    height:100px;
+}
+
+#logo-expert{
+    float:right;
+    height:100px;
+}
+
+#lot{
+    padding-top: 50px;
+    height:300px;
+    margin: auto;
+    display: block;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.mar20{
+  margin-top: 20px;
+}
+
+.lineheight{
+  line-height: 1.6;
+}
+
+.pad10 {
+  padding-top: 10px;
+}
+
+.marbot10 {
+  margin-bottom: 10px;
+}
+
+.block1{
+height:100px;
+}
+
+.block2{
+height:105px;
+}
+
+#block1edit{
+  height:120px
+}
+
+#block2edit{
+  margin-top: 20px;
+  height:150px
+}
+
+.aligncenter{
+  width: 900px;
+  padding-top: 25px;
+}
+
+.txtcenteralign{
+  text-align: center;
+}
+
+.standard-margin{
+  margin-top:10px;
+}
+
+.margin5{
+  margin-top:5px;
+}
+
+.textleft {
+    text-align: left;
+}
+
+.textright {
+    text-align: right;
+}
+
+#oneoffblock{
+    width:200px;
+    float:right;
+}
+
+th, td {
+    padding: 15px;
+}
+
+.kad{
+    width: 100%;
+    height:120px;
+}
+
+.loc{
+    margin-top: 20px;
+    width: 100%;
+    height:120px;
+}
+
+.padstrip{
+  padding:0px;
+}
+
+.padrightstrip{
+  padding-right:0px;
+}
+
+.bordertop{
+    border-top: solid 2px;
+}
+
+.borderbottom{
+    border-bottom: solid 2px;
+}
+
+.borderbottomthin{
+    border-bottom: solid 1px;
+}

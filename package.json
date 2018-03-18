@@ -1,0 +1,22 @@
+{
+  "name": "TREX",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "browserify-officegen": "browserify -r graceful-fs:browserify-fs  -o officegen.min.js officegen.js",
+    "browserify-fs": "browserify -o fs.min.js fs.js",
+    "postinstall": "install-app-deps"
+  },
+  "dependencies": {
+    "bootstrap-imageupload": "^1.1.3",
+    "browserify-fs": "^1.0.0",
+    "electron": "^1.7.9",
+    "officegen": "^0.4.5",
+    "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master"
+  },
+  "devDependencies": {
+    "aliasify": "^2.1.0",
+    "browserify": "^16.1.1",
+    "electron-builder": "^19.45.5"
+  }
+}

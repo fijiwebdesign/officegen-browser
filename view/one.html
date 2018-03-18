@@ -1,0 +1,837 @@
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="Dashboard">
+      <meta name="keyword" content="">
+      <link rel="shortcut icon">
+      <title>Screen Estate</title>
+      <link rel="stylesheet" href="../assets/css/form-labels-on-top.css">
+      <link rel="stylesheet" href="../assets/css/form-basic.css">
+      <link rel="stylesheet" href="../assets/css/custom.css">
+      <link rel="stylesheet" href="../assets/css/fontawesome-pro-light.css">
+      <link rel="stylesheet" href="../assets/css/fontawesome-pro-core.css">
+      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../assets/css/docrender.css">
+      <link rel="stylesheet" href="../assets/css/TableFlip.css">
+      <link rel="stylesheet" href="../assets/css/docprint.css">
+      <script src="../js/one/jquery-3.2.1.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+      <script src="../js/one/w3.js" onload="window.$ = window.jQuery = module.exports;"></script>
+      <script type="text/javascript" src="../js/one/jsonpath.js"></script>
+   </head>
+   <body>
+      <div class="main-content centered">
+         <form class="form-labels-on-top" id="formresolve" method="post" action="#">
+            <div class="main-menu" id="pdfhid" style="display:block;">
+               <a href="#" class="btn btn-lg main-btn btn-default btn-circle" onclick="onMainClick()"><i class="menufont fa-home fal"></i><br>Home</a>
+               <a href="#" class="btn btn-lg main-btn btn-default btn-circle" onclick="onSaveClick()"><i class="menufont fa-save fal"></i><br>Save</a>
+               <a href="#" class="btn btn-lg main-btn btn-default btn-circle" onclick="onLoadClick(); onReadDirClick();"><i class="menufont fa-download fal" ></i><br>Load</a>
+               <a href="#" class="btn btn-lg main-btn btn-default btn-circle" onclick="onDocClick();  onDocRenderClick(); onWordGenClick();"><i class="menufont fa-file-alt fal" ></i><br>Document</a>
+               <a href="../index.html" class="btn btn-lg main-btn btn-default btn-circle"><i class="menufont fa-sign-out-alt fal" ></i><br>Exit</a>
+            </div>
+              <div class="calcview " id="mainview">
+                <div id="messagebox1"></div>
+                <div class="col-lg-12 titleborder" style="display: none;">
+                  <div class="col-lg-6 titleborder">
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck1" name="LayoutCheck1">
+                    </label>
+                  </div>
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck2" name="LayoutCheck2">
+                    </label>
+                  </div>
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck3" name="LayoutCheck3">
+                    </label>
+                  </div>
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck4" name="LayoutCheck4">
+                    </label>
+                  </div>
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck5" name="LayoutCheck5">
+                    </label>
+                  </div>
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck6" name="LayoutCheck6">
+                    </label>
+                  </div>
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck7" name="LayoutCheck7">
+                    </label>
+                  </div>
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck8" name="LayoutCheck8">
+                    </label>
+                  </div>
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck9" name="LayoutCheck9">
+                    </label>
+                  </div>
+                  <div class="form-row">
+                    <label>
+                      <input type="checkbox" id="LayoutCheck10" name="LayoutCheck10">
+                    </label>
+                  </div>
+                  </div>
+               </div>
+               <div class="col-lg-12">
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row">
+                        <h1>Dossier</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row iconright">
+                        <i id="DocLayout1oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout1oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Dossier Nr:</span>
+                        <input type="text" id="Dosnumber" name="Dosnumber">
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Datum:</span>
+                        <input type="text" id="DosDate" name="DosDate">
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder">
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row">
+                        <h1>Dossier Aanvrager</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row iconright">
+                        <i  id="DocLayout2oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout2oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Bedrijf:</span>
+                        <input type="text" id="ACompany" name="ACompany">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Voornaam:</span>
+                        <input type="text" id="AFirstName" name="AFirstName">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Gemeente:</span>
+                        <input type="text" id="ACity" name="ACity">
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Btw Nummer:</span>
+                        <input type="text" id="ANumberCompany" name="ANumberCompany">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Achternaam:</span>
+                        <input type="text" id="ALastName" name="ALastName">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Straat + Nr/Bus:</span>
+                        <input type="text" id="AStreetID" name="AStreetID">
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder">
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row">
+                        <h1>Eigenaar</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row iconright">
+                        <i id="DocLayout3oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout3oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Bedrijf:</span>
+                        <input type="text" id="BCompany" name="BCompany">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Voornaam:</span>
+                        <input type="text" id="BFirstName" name="BFirstName">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Gemeente:</span>
+                        <input type="text" id="BCity" name="BCity">
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Btw Nummer:</span>
+                        <input type="text" id="BNumberCompany" name="BNumberCompany">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Achternaam:</span>
+                        <input type="text" id="BLastName" name="BLastName">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Straat + Nr/Bus:</span>
+                        <input type="text" id="BStreetID" name="BStreetID">
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder">
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row">
+                        <h1>Locatie</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row iconright">
+                        <i id="DocLayout4oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout4oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Gemeente:</span>
+                        <select id="ListCity" class="ListCity MidPriceGem">
+                        </select>
+                        </label>
+                     </div>
+                     <div class="form-row" id="OGStreet">
+                        <label>
+                        <span>
+                        Straat:</span>
+                        <select id="ListStreet">
+                        </select>
+                        </label>
+                     </div>
+                     <div class="form-row" id="ManStreet" style="display:none;">
+                        <label>
+                        <span>
+                        Manueel Invoeren:</span>
+                        <input type="text" id="ManualStreet" name="ManualStreet">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <input type="checkbox" id="ManualCheck" name="check[]">
+                        Manueel Invoeren
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Postcode:</span>
+                        <input type="text" id="ListZipcode" name="ListZipcode">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Nummer/Bus:</span>
+                        <input type="text" id="ListNumber" name="ListNumber">
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder">
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row">
+                        <h1>GEO-Service</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row iconright">
+                       <i class="menufont iconpush fa-undo fal" id="Geolocated"></i>
+                        <i id="DocLayout9oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout9oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                     </div>
+                  </div>
+                  <div class="col-lg-12">
+
+
+                    <div class="row">
+                    	<div class="col-lg-12">
+                            <div class="panel with-nav-tabs panel-default">
+                                <div class="panel-heading">
+                                        <ul class="nav nav-tabs">
+                                            <li><a id="men1default" data-toggle="tab">GRB</a></li>
+                                            <!--<li><a id="men2default" data-toggle="tab">Kadastraal</a></li>-->
+                                            <li><a id="men3default" data-toggle="tab">Gewestplan</a></li>
+                                            <li><a id="men4default" data-toggle="tab">Voorkooprecht</a></li>
+                                            <li><a id="men5default" data-toggle="tab">Watertoets</a></li>
+                                        </ul>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane" id="tab1default" style="display:block;"><img id="GRBImg" class="imagecenter"></div>
+                                        <!--<div class="tab-pane" id="tab2default" style="display:none;"><img id="CadImg" class="imagecenter"></div>-->
+                                        <div class="tab-pane" id="tab3default" style="display:none;"><img id="GewestImg" class="imagecenter"></div>
+                                        <div class="tab-pane" id="tab4default" style="display:none;"><img id="Back1Img" class="imagecenter" style="position: relative; top: 0; left: 0;"><img id="VoorkoopImg" class="imagecenter" style="position: absolute; top: 65; left: 0; opacity: 0.5; filter: alpha(opacity=50);"></div>
+                                        <div class="tab-pane" id="tab5default" style="display:none;"><img id="Back2Img" class="imagecenter" style="position: relative; top: 0; left: 0;"><img id="Water1Img" class="imagecenter" style="position: absolute; top: 65; left: 0; opacity: 0.5; filter: alpha(opacity=50);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                	</div>
+
+
+
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder">
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row">
+                        <h1>Kadastrale gegevens</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row iconright">
+                        <i id="DocLayout5oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout5oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Afdeling:</span>
+                        <input type="text" id="District" name="District">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        NIS-code:</span>
+                        <input type="text" id="NisCode" name="NisCode">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Geindexeerd KI:</span>
+                        <input type="text" id="Gki" name="Gki">
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Sectie:</span>
+                        <input type="text" id="Section" name="Section">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Perceelsnr:</span>
+                        <input type="text" id="SubSection" name="SubSection">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Niet Geïndexeerd KI:</span>
+                        <input type="text" id="NGki" name="NGki">
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder">
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row">
+                        <h1>Privaat Rechtelijk</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row iconright">
+                        <i id="DocLayout6oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout6oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Eigendom:</span>
+                           <select id="OwnageProperty">
+                              <option value="Volle Eigendom">Vol</option>
+                              <option value="Gedeelde Eigendom">Gedeelde</option>
+                              <option value="Gesplitste Eigendom">Gesplitst</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Verkaveling:</span>
+                           <select id="SplittedLot">
+                              <option value="Nee">Nee</option>
+                              <option value="Ja">Ja</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Overstromingsgevoelig:</span>
+                           <select id="Flooding">
+                              <option value="Nee">Nee</option>
+                              <option value="Ja">Ja</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Effectief overstromingsgebied:</span>
+                           <select id="RealFlooding">
+                              <option value="Nee">Nee</option>
+                              <option value="Ja">Ja</option>
+                           </select>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Recht van opstal:</span>
+                           <select id="BuildCont">
+                              <option value="Nee">Nee</option>
+                              <option value="Ja">Ja</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Erfdienstbaarheid:</span>
+                           <select id="Inherited">
+                              <option value="Nee">Nee</option>
+                              <option value="Ja">Ja</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Zonevreemd:</span>
+                           <select id="UndefZone">
+                              <option value="Nee">Nee</option>
+                              <option value="Ja">Ja</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Voorkooprecht:</span>
+                           <select id="FirstSale">
+                              <option value="Nee">Nee</option>
+                              <option value="Ja">Ja</option>
+                           </select>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder">
+                  <div class="col-lg-12 titleborder">
+                     <div class="form-title-row">
+                        <h1>Kenmerken Grond</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Oppervlakte Alfa (m²):</span>
+                        <input type="text" id="AreaFront" name="AreaFront" class="MidPriceGem">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Oppervlakte Beta (m²):</span>
+                        <input type="text" id="AreaBack" name="AreaBack" class="MidPriceGem">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Breedte Perceel (m):</span>
+                        <input type="text" id="WidthArea" name="WidthArea">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Diepte Perceel (m):</span>
+                        <input type="text" id="DepthArea" name="DepthArea">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Bebouwd Alfa:</span>
+                           <select id="BuildFront">
+                              <option value="1">Onbebouwd</option>
+                              <option value="0.85">Bebouwd</option>
+                           </select>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Zonering Alfa:</span>
+                           <select id="FrontType">
+                              <option value="Woonzone">Woonzone</option>
+                              <option value="Landelijke Woonzone">Landelijke Woonzone</option>
+                              <option value="Groenezone">Groenezone</option>
+                              <option value="Industriegebied">Industriegebied</option>
+                              <option value="Ambachtelijkezone">Ambachtelijkezone</option>
+                              <option value="Recreatiegebied">Recreatiegebied</option>
+                              <option value="Gebied voor Gemeenschapsvoorziening">Gebied voor Gemeenschapsvoorziening</option>
+                              <option value="Landbouwgrond">Landbouwgrond</option>
+                              <option value="Back-Yard-Zone">Tuinzone</option>
+                              <option value="Woonuitbreidingsgebied 5jaar">Woonuitbreidingsgebied 5jaar</option>
+                              <option value="Woonuitbreidingsgebied 10jaar">Woonuitbreidingsgebied 10jaar</option>
+                              <option value="Woonuitbreidingsgebied 20jaar">Woonuitbreidingsgebied 20jaar</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Zonering Beta:</span>
+                           <select id="BackType">
+                              <option value="Woonzone">Woonzone</option>
+                              <option value="Landelijke Woonzone">Landelijke Woonzone</option>
+                              <option value="Groenezone">Groenezone</option>
+                              <option value="Industriegebied">Industriegebied</option>
+                              <option value="Ambachtelijkezone">Ambachtelijkezone</option>
+                              <option value="Recreatiegebied">Recreatiegebied</option>
+                              <option value="Gebied voor Gemeenschapsvoorziening">Gebied voor Gemeenschapsvoorziening</option>
+                              <option value="Landbouwgrond">Landbouwgrond</option>
+                              <option value="Back-Yard-Zone">Tuinzone</option>
+                              <option value="Woonuitbreidingsgebied 5jaar">Woonuitbreidingsgebied 5jaar</option>
+                              <option value="Woonuitbreidingsgebied 10jaar">Woonuitbreidingsgebied 10jaar</option>
+                              <option value="Woonuitbreidingsgebied 20jaar">Woonuitbreidingsgebied 20jaar</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Configuratie:</span>
+                           <select id="ConfigRegularity">
+                              <option value="Regelmatig">Regelmatig</option>
+                              <option value="Onregelmatig">Onregelmatig</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Locatie:</span>
+                           <select id="Zoning">
+                              <option value="Centrum">Centrum</option>
+                              <option value="Stadsrand">Stadsrand</option>
+                              <option value="Dorpsrand">Dorpsrand</option>
+                              <option value="Landelijk">Landelijk</option>
+                              <option value="Zonevreemd">Zonevreemd</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Bebouwd Beta:</span>
+                           <select id="BuildBack">
+                              <option value="1">Onbebouwd</option>
+                              <option value="1">Bebouwd</option>
+                           </select>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder">
+                  <div class="col-lg-12 titleborder">
+                     <div class="form-title-row">
+                        <h1>Grondprijs</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Gemiddelde Alfa (€/m²):</span>
+                        <input type="text" id="FrontMiddlePrice" name="FrontMiddlePrice">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Gemiddelde Beta (€/m²):</span>
+                        <input type="text" id="BackMiddlePrice" name="BackMiddlePrice">
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Eigen Alfa (€/m²):</span>
+                        <input type="text" id="FrontOwnPrice" name="FrontOwnPrice">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Eigen Beta (€/m²):</span>
+                        <input type="text" id="BackOwnPrice" name="BackOwnPrice">
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder">
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row">
+                        <h1>Project Ontwikkeling</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row iconright">
+                        <i id="DocLayout7oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout7oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                           <span>
+                           Ontwikkeling:</span>
+                           <select id="InvestType">
+                              <option value="0"></option>
+                              <option value="1">Verkaveling</option>
+                              <option value="2">Woning</option>
+                              <option value="3">Appartement</option>
+                           </select>
+                        </label>
+                     </div>
+                     <div class="form-row" id="TotSize" style="display:none;">
+                        <label>
+                        <span>
+                        Bebouwbare Opp vanaf +1 (m²):</span>
+                        <input type="text" id="DevTotalBuildArea" name="DevTotalBuildArea">
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row" id="NumbLot" style="display:none;">
+                        <label>
+                        <span>
+                        Aantal kavels:</span>
+                        <input type="text" id="DevelopmentNumber" name="DevelopmentNumber">
+                        </label>
+                     </div>
+                     <div class="form-row" id="NumbUnits" style="display:none;">
+                        <label>
+                        <span>
+                        Aantal units:</span>
+                        <input type="text" id="DevelopmentUnits" name="DevelopmentUnits">
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder" id="InvestLotPriced" style="display:none;">
+                  <div class="col-lg-12 titleborder">
+                     <div class="form-title-row">
+                        <h1>Grondprijs Ontwikkeling</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Gemiddelde Alfa (€/m²):</span>
+                        <input type="text" id="DevMiddlePrice" name="DevMiddlePrice">
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Eigen Alfa (€/m²):</span>
+                        <input type="text" id="DevOwnPrice" name="DevOwnPrice">
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 titleborder" id="InvestModule" style="display:none;">
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row">
+                        <h1>Berekening voor Investeerder</h1>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 titleborder">
+                     <div class="form-title-row iconright">
+                        <i id="DocLayout8oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout8oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Constructie (€/m²):</span>
+                        <input type="text" id="InvestDetail" name="InvestDetail">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Totaal Bebouwbare Opp (m²):</span>
+                        <input type="text" id="InvestTotalBuildArea" name="InvestTotalBuildArea">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Onkosten (%)</span>
+                        <input type="text" id="NotaryCost" name="NotaryCost">
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 formpadding">
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        Verkoopprijs (€/m²):</span>
+                        <input type="text" id="InvestSale" name="InvestSale">
+                        </label>
+                     </div>
+                     <div class="form-row">
+                        <label>
+                        <span>
+                        ROI (%):</span>
+                        <input type="text" id="RoiPlan" name="RoiPlan">
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="loadview " style="display:none" id="loadview">
+              <div id="messagebox2"></div>
+                <div class="col-lg-12">
+               <div class="loadtable">
+                  <table class="table table-striped" id="loadingtable">
+                     <tbody>
+                     </tbody>
+                  </table>
+               </div>
+             </div>
+            </div>
+            <div class="imageview" style="display:none" id="imageview">
+              <div id="messagebox3"></div>
+              <div class="col-lg-12 titleborder">
+              <div class="imageupload panel panel-default">
+                <div class="col-lg-6 titleborder">
+                   <div class="form-title-row">
+                      <h1>Upload Fotos</h1>
+                   </div>
+                </div>
+                <div class="col-lg-6 titleborder">
+                   <div class="form-title-row iconright">
+                      <i id="DocLayout10oN" class="menufont iconpush fa-check-circle fal"></i><i id="DocLayout10oFF" style="display:none;" class="menufont iconpush fa-times-circle fal"></i>
+                   </div>
+                </div>
+                  <div class="file-tab panel-body">
+                      <label class="btn btn-default btn-file">
+                          <span>Browse</span>
+                          <!-- The file is stored here. -->
+                          <input type="file" name="image-file">
+                      </label>
+                  </div>
+                  <div class="url-tab panel-body">
+                      <div class="input-group">
+                      </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+            <div class="loadview " style="display:none" id="docview">
+              <div id="messagebox4"></div>
+               <div w3-include-html="../assets/template/template-one.html"></div>
+            </div>
+            <div style="clear:both"></div>
+         </form>
+      </div>
+   </body>
+   <script type="text/javascript">
+      require('../js/one/Alerts.js');
+      require('../js/one/Object.js');
+      require('../js/one/Functions.js');
+      require('../js/one/Design.js');
+      require('../js/one/CRED.js');
+   </script>
+   <script type="text/javascript">
+      w3.includeHTML();
+   </script>
+</html>
